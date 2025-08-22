@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
+{% endblock %}
+
+{% block modal_cart %}
+{% include 'includes/cart_button.html' %}
+{% endblock %}
+
+
+{% block content %}
+<section class="about-section py-5 bg-light">
+  <div class="container">
+    <!-- Заголовок -->
+    <div class="text-center mb-5">
+  <h2 class="display-4 fw-bold" style="
+    background: linear-gradient(90deg, #ff0000 0%, #000000 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  ">О нашем автосалоне</h2>
+</div>
+
+    <!-- Основной контент -->
+    <div class="row g-4">
+      <!-- Блок с миссией -->
+      <div class="col-lg-6">
+        <div class="card border-0 shadow-sm h-100 hover-scale">
+          <div class="card-body p-4">
+            <h3 class="h4">Наша миссия</h3>
+            <p class="text-muted">Мы создаем безупречный опыт покупки автомобиля, сочетая экспертные знания с индивидуальным подходом к каждому клиенту.</p>
+            <ul class="list-check text-muted">
+              <li>Только проверенные автомобили</li>
+              <li>Прозрачные условия сделки</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Блок с преимуществами -->
+      <div class="col-lg-6">
+        <div class="card border-0 shadow-sm h-100 hover-scale">
+          <div class="card-body p-4">
+            <h3 class="h4">Наши преимущества</h3>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="d-flex">
+                  <div class="me-3 text-primary">
+                    <i class="bi bi-check-circle-fill"></i>
+                  </div>
+                  <div>
+                    <h6 class="mb-1">Гарантия 2 года</h6>
+                    <p class="small text-muted mb-0">Расширенная гарантия на все автомобили без доплат</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex">
+                  <div class="me-3 text-primary">
+                    <i class="bi bi-check-circle-fill"></i>
+                  </div>
+                  <div>
+                    <h6 class="mb-1">Тест-драйв</h6>
+                    <p class="small text-muted mb-0">Возможность протестировать автомобиль</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Другие преимущества... -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Команда -->
+    <div class="team-section mt-5 pt-5">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold" style="
+            background: linear-gradient(90deg, #ff0000 0%, #000000 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;">
+            Наша команда
+        </h2>
+        <p class="text-muted">Профессионалы, которые сделают ваш опыт незабываемым</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="team-card text-center">
+            <div class="avatar-wrapper mx-auto">
+              <img src="{% static 'deps/images/team/adelg.jpg' %}"
+                   alt="Дмитрий Кохонов"
+                   class="img-fluid rounded-circle shadow">
+              <div class="social-links">
+                <a href="#"><i class="bi bi-github"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+                <a href="#"><i class="bi bi-telegram"></i></a>
+              </div>
+            </div>
+            <div class="py-3">
+              <h4 class="mb-1">Дмитрий Кохонов</h4>
+              <p class="text-muted mb-2">Веб-разработчик</p>
+              <p class="small text-muted">Разработка цифровых решений для автосалона</p>
+            </div>
+          </div>
+        </div>
+        <!-- Другие члены команды... -->
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block footer %}
+    <footer class="py-4 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; DriveHub hihihaha studio</p>
+        </div>
+    </footer>
+{% endblock %}

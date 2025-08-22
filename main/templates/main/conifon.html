@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
+{% endblock %}
+
+{% block modal_cart %}
+{% include 'includes/cart_button.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="about-us mt-5 pt-5 bg-white custom-shadow rounded">
+  <!-- Информация об автосалоне -->
+  <div class="pharmacy-info">
+    <h2 class="text-center" style="
+    background: linear-gradient(90deg, #ff0000 0%, #000000 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  ">Информация об автосалоне</h2>
+    <p><strong>Телефон:</strong> +7 (123) 456-78-90</p>
+    <p><strong>Email:</strong> <a href="mailto:info@safemed.ru">info@DriveHub.ru</a></p>
+    <p><strong>Адрес:</strong> г. Казань, ул. Ленина, 10</p>
+    <p>
+      <strong>Справочная информация:</strong>
+      <!-- Кнопка для скачивания PDF файла -->
+      <a href="{% static 'deps/files/spravka.pdf' %}" download="Справка_Автосалон.pdf" class="btn btn-primary">
+        Скачать PDF
+      </a>
+    </p>
+    <a href="{% url 'main:index' %}" target="_self">
+      <img src="{% static 'deps/images/logo.png' %}" alt="Логотип" style="height: 60px;">
+    </a>
+  </div>
+{% endblock %}
+
+{% block footer %}
+<footer class="py-4 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; DriveHub hihihaha studio</p>
+    </div>
+</footer>
+{% endblock %}

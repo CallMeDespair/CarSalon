@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+</head>
+<body>
+    <div class="chat-container">
+    <!-- Сообщения в textarea -->
+    <div class="message-area">
+        {% for message in messages %}
+        <div class="message-block">
+            <div class="message-label" >Пользователь:</div>
+            <textarea class="message-text user-message" readonly>{{ message.user_message }}</textarea>
+        </div>
+        <div class="message-block">
+            <div class="message-label">Чат-бот:</div>
+            <textarea class="message-text bot-message" readonly>{{ message.bot_response }}</textarea>
+        </div>
+        {% endfor %}
+    </div>
+
+    <form action="{% url 'chatbot:send_message' %} " method="post">
+        {% csrf_token %}
+            <textarea name="user_message"></textarea>
+        <input type="submit" value="Отправить сообщение">
+    </form>
+</body>
+{% endblock %}

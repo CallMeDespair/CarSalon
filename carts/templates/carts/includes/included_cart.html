@@ -1,0 +1,63 @@
+{% load static %}
+
+<div class="cart-container">
+    {% for cart in carts %}
+        <div class="card mb-3 cart-item shadow-lg">
+            <div class="card-header bg-light">
+                <h5 class="card-title text-dark">{{ cart.product.name }}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="row align-items-center">
+                        <div class="col p-0">
+                            <div class="input-group quantity-controls" style="width: 120px;">
+                                <button type="button" class="btn btn-sm btn-outline-danger decrement"
+                                        data-cart-id="{{ cart.id }}"
+                                        data-cart-change-url="{% url 'carts:cart_change' %}">
+                                    {% csrf_token %}
+                                    -
+                                </button>
+                                <input type="text" class="form-control number text-center" value="{{ cart.quantity }}" style="width: 40px;">
+                                <button type="button" class="btn btn-sm btn-outline-success increment"
+                                        data-cart-id="{{ cart.id }}"
+                                        data-cart-change-url="{% url 'carts:cart_change' %}">
+                                    {% csrf_token %}
+                                    +</button>
+                            </div>
+                        </div>
+                        <div class="col p-0 hidden-price">
+                            <p class="text-muted">x {{ cart.product.sell_price }} ₽</p>
+                        </div>
+                        <div class="col p-0 text-right">
+                            <strong>{{ cart.products_price }} ₽</strong>
+                        </div>
+                        <div class="col p-0 text-center">
+                            <a href="{% url 'carts:cart_remove' %}" class="remove-from-cart" data-cart-id="{{ cart.id }}">
+                                {% csrf_token %}
+                                <img src="{% static 'deps/icons/trash3-fill.svg' %}" alt="Удалить" width="16" height="16">
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="card mb-3 summary-card shadow-lg">
+    <div class="card-footer text-right">
+        <p class="float-left">Итого: <strong>{{ carts.total_quantity }}</strong> автомобиль(ей) на сумму</p>
+        <h4 class="float-left total-price"><strong>{{ carts.total_price }} ₽</strong></h4>
+        {% if carts and not order %}
+        <a class="btn btn-dark" href="{% url 'deals:create_order' %}">
+            Оформить договор
+        </a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    {% if carts|length > 1 %}
+        <a href="{% url 'carts:compare_cars' %}" class="btn btn-dark">Сравнить автомобили ({{ carts|length }})</a>
+    {% endif %}
+</div>
