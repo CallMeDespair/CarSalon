@@ -1,0 +1,23 @@
+/* Проблема с футером - он всегда внизу */
+footer {
+  background-color: #264653;
+  color: #f1faee;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-top: flex;
+}
+
+/* Стиль для футера */
+footer a {
+  color: #e9c46a;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
